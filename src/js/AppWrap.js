@@ -1,3 +1,13 @@
-/**
- * Created by huber on 02.08.2016.
- */
+import React from "react";
+import Calendar from "./Calendar"
+
+
+export default class AppWrap extends React.Component {
+    render() {
+        return (
+            <div>
+                <Calendar/>
+                </div>
+        )
+    }
+}

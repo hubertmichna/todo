@@ -1,17 +1,135 @@
+@font-face {
+    font-family: CLight;
+    src: url(clight.otf);
+}
+
 *{  box-sizing: border-box; }
-html,body,#app {  height:100%;  margin: 0;  padding: 0; }
-body {  background: #eee;  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-h1{  font-weight: 200;  color: #3b414c;  font-size: 30px; text-align: center; }
+html,body,#app {  height:100%; width: 100%;  margin: 0;  padding: 0; overflow: hidden;}
+body {  background: #eee; font-weight: bold;  font-family: Helvetica, Helvetica, Arial, sans-serif; }
+h1{ font-weight: bold; font-family: CLight;  color: #3b414c;  font-size: 30px; text-align: center; margin-bottom: 20px; padding-left: 75px;   }
 ul {  list-style-type: none;  padding: 0;  margin: 0; }
 .app {  white-space: nowrap;  height:100%; }
-.done {color: green; }
-.in-progress {color: #fdaf3b;}
-.todo {color: red;}
-.list {  position: relative;  display: inline-block;  vertical-align: top;  white-space: normal;  height: 100%;  width: 33%;  padding: 0 20px;  overflow: auto; }
+.card.done {border-left: solid 3px #005731; }
+.card.in-progress {border-left: solid 3px rgba(255, 82, 0, 0.94);}
+.card.todo {border-left: solid 3px #9e1700;}
+.list {  position: relative;  display: inline-block;  vertical-align: top;  white-space: normal; width: 33%; height: 80vh;   padding: 0 20px;  overflow: auto; overflow-x: hidden; }
 .list:not(:last-child):after{  content: "";  position: absolute;  top: 0;  right: 0;  width: 1px;  height: 99%;  background: linear-gradient(to bottom, #eee 0%, #ccc 50%, #eee 100%) fixed; }
-.card {  position: relative;  z-index: 1; background: #fff;  width: 100%;  padding: 10px 10px 10px 15px;  margin: 0 0 10px 0;  overflow: auto;  border: 1px solid #e5e5df;  border-radius: 3px;  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); }
-.card_title {  font-weight: bold;  border-bottom: solid 5px transparent; font-size: 20px }
+.card {  position: relative;  z-index: 1; background-color: #f9f9f9; width: 100%;  padding: 0 10px 0 15px;  margin: 0 0 10px 0;  overflow: auto;  border: 1px solid #e5e5df;  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); }
+.card_title {   border-bottom: solid 5px transparent; font-size: 25px; padding-top:10px; text-align: center;}
+.card_details { padding-bottom: 10px; white-space: pre-wrap;}
 .checklist_task:first-child {  margin-top: 10px;  padding-top: 10px;  border-top: dashed 1px #ddd; }
-.checklist_task--remove{ position:absolute; right:10px; top:10px; color: #d66; font-size: 10px;  }
-.addTask {display: inline-block; position:absolute;top: 50%;left: 40%; width: 300px}
-.add_task { color: #468866; font-size: 10px; float: right;   }
+.checklist_task--remove{ font-family: CLight; position:absolute; right:10px; top:10px; font-size: 12px; width: 60px; height: 30px; font-weight: bold; background-color: transparent; color: #ac2925; transition: background-color 0.4s ease;   }
+.toggleAddCard {  font-family: CLight; color: #2e6da4; height: 30px; width: 60px; font-size: 12px; font-weight: bold; float: right; padding: 6px 2px; margin:22px 10px 22px 0; background-color: transparent; transition: background-color 0.4s ease;  }
+.addCardButton {  font-family: CLight; float:right; margin: 10px; font-size:12px; height: 30px; font-weight: bold; width: 60px; background-color: transparent; color: #449d44; transition: background-color 0.4s ease;}
+.addTask { width: 100%;}
+.btn { border-radius: 0;}
+.form-control {border-radius: 0;}
+.cards-enter {
+    overflow:hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+.cards-enter.cards-enter-active {
+    max-height: 125px;
+    opacity: 1;
+    transition: all 300ms ease-in;
+}
+
+.cards-leave {
+    opacity: 1;
+    max-height: 80px;
+    overflow: hidden;
+}
+
+.cards-leave.cards-leave-active {
+    max-height: 0;
+    opacity: 0;
+    transition: all 300ms ease-in;
+}
+
+
+.AddCard-enter {
+     overflow:hidden;
+     max-height: 0;
+     opacity: 0;
+ }
+
+.AddCard-enter.AddCard-enter-active {
+    max-height: 125px;
+    opacity: 1;
+    transition: all 500ms ease-in;
+}
+
+.AddCard-leave {
+    max-height: 125px;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.AddCard-leave.AddCard-leave-active {
+    max-height: 0;
+    opacity: 0;
+    transition: all 500ms ease-in;
+}
+
+.showDay-enter {
+    opacity: 0;
+}
+
+.showDay-enter.showDay-enter-active {
+    opacity: 1;
+    transition: all 300ms ease-in;
+}
+
+.showDay-leave {
+
+    opacity: 1;
+
+}
+
+.showDay-leave.showDay-leave-active {
+    opacity: 0;
+    transition: all 300ms ease-in;
+}
+
+
+.yourMom {
+    font-family: CLight, Helvetica, Arial, sans-serif;
+    display: inline-block;
+    width: 14.285vw;
+    height: 55px;
+    border-bottom: solid 1px #5b5b5b;
+    color: #ffffff;
+    background-color: #141C3E;
+    padding-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+    transition:all 0.5s ease;
+}
+.yourMom:hover {
+    color: #ffad00;
+    transition: all 0.5s ease;
+}
+.calendar {
+    display: flex;
+}
+
+.uolo {
+    position: absolute;
+    left: 0;
+    top: 75px;
+    width: 99vw;
+    flex-direction: row;
+    transition:width 0.2s ease-out;
+}
+.uolohidden {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.selected {
+    color: #ffad00;
+}

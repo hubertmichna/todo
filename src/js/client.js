@@ -3,9 +3,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 
-import Layout from "./Layout";
+import AppWrap from "./AppWrap";
 
 
 const app = document.getElementById('app');
 
-ReactDOM.render(<Layout/>, app);
+ReactDOM.render(<AppWrap/>, app);

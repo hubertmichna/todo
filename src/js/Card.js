@@ -9,7 +9,7 @@ const cardSource = {
     beginDrag(props) {
         return {
             id: props.id,
-            status: props.status
+            status: props.status,
         };
     }
 };
@@ -24,15 +24,12 @@ function collect(connect, monitor) {
 
 class Card extends React.Component {
 
-
     render() {
-
-
 
         const { connectDragSource} = this.props;
         return connectDragSource(
             <div className={"card " + this.props.status}>
-                <a className="checklist_task--remove" onClick={() => this.props.chuj(this.props.id)}>delete</a>
+                <a className="btn btn-danger checklist_task--remove" onClick={() => this.props.chuj(this.props.id)}>delete</a>
             <div className="card_title">{this.props.title}</div>
                 <div className="card_details">
                     {this.props.description}
