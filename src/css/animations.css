@@ -1,0 +1,68 @@
+.cards-enter {
+    overflow:hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+.cards-enter.cards-enter-active {
+    max-height: 125px;
+    opacity: 1;
+    transition: all 300ms ease-in;
+}
+
+.cards-leave {
+    opacity: 1;
+    max-height: 80px;
+    overflow: hidden;
+}
+
+.cards-leave.cards-leave-active {
+    max-height: 0;
+    opacity: 0;
+    transition: all 300ms ease-in;
+}
+
+
+.addCard-enter {
+    overflow:hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+.addCard-enter.addCard-enter-active {
+    max-height: 120px;
+    opacity: 1;
+    transition: all 300ms ease-in;
+}
+
+.addCard-leave {
+    max-height: 120px;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.addCard-leave.addCard-leave-active {
+    max-height: 0;
+    opacity: 0;
+    transition: all 300ms ease-in;
+}
+
+.showDay-enter {
+    opacity: 0;
+}
+
+.showDay-enter.showDay-enter-active {
+    opacity: 1;
+    transition: all 300ms ease-in;
+}
+
+.showDay-leave {
+
+    opacity: 1;
+
+}
+
+.showDay-leave.showDay-leave-active {
+    opacity: 0;
+    transition: all 300ms ease-in;
+}

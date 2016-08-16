@@ -1,0 +1,191 @@
+@font-face {
+    font-family: CLight;
+    src: url(../clight.otf);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, #app {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    background: #eee;
+    font-weight: bold;
+    font-family: Helvetica, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    font-weight: bold;
+    font-family: CLight;
+    color: #3b414c;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-left: 75px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.app {
+    white-space: nowrap;
+    height: 100%;
+}
+
+.calendar {
+    display: flex;
+}
+
+.day {
+    position: absolute;
+    left: 0;
+    top: 75px;
+    width: 99vw;
+    flex-direction: row;
+    transition: width 0.2s ease-out;
+}
+
+.header {
+    font-family: CLight, Helvetica, Arial, sans-serif;
+    display: inline-block;
+    width: 14.285vw;
+    height: 55px;
+    border-bottom: solid 1px #5b5b5b;
+    color: #ffffff;
+    background-color: #141C3E;
+    padding-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+    transition: all 0.5s ease;
+}
+
+.header:hover {
+    color: #ffad00;
+    transition: all 0.5s ease;
+}
+
+.card.done {
+    border-left: solid 3px #005731;
+}
+
+.card.in-progress {
+    border-left: solid 3px rgba(255, 82, 0, 0.94);
+}
+
+.card.todo {
+    border-left: solid 3px #9e1700;
+}
+
+.list {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    width: 33%;
+    height: 80vh;
+    padding: 0 20px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.list:not(:last-child):after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 99%;
+    background: linear-gradient(to bottom, #eee 0%, #ccc 50%, #eee 100%) fixed;
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+    background-color: #f9f9f9;
+    width: 100%;
+    padding: 0 10px 0 15px;
+    margin: 0 0 10px 0;
+    overflow: auto;
+    border: 1px solid #e5e5df;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.cardTitle {
+    border-bottom: solid 5px transparent;
+    font-size: 25px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.cardDetails {
+    padding-bottom: 10px;
+    white-space: pre-wrap;
+}
+
+.deleteCard {
+    font-family: CLight;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 12px;
+    width: 60px;
+    height: 30px;
+    font-weight: bold;
+    background-color: transparent;
+    color: #ac2925;
+    transition: background-color 0.4s ease;
+}
+
+.toggleAddCard {
+    font-family: CLight;
+    color: #2e6da4;
+    height: 30px;
+    width: 60px;
+    font-size: 12px;
+    font-weight: bold;
+    float: right;
+    padding: 6px 2px;
+    margin: 22px 10px 22px 0;
+    background-color: transparent;
+    transition: background-color 0.4s ease;
+}
+
+.addCardButton {
+    font-family: CLight;
+    float: right;
+    margin: 10px;
+    font-size: 12px;
+    height: 30px;
+    font-weight: bold;
+    width: 60px;
+    background-color: transparent;
+    color: #449d44;
+    transition: background-color 0.4s ease;
+}
+
+.addTask {
+    width: 100%;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.selected {
+    color: #ffad00;
+}

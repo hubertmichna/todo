@@ -29,9 +29,9 @@ class Card extends React.Component {
         const { connectDragSource} = this.props;
         return connectDragSource(
             <div className={"card " + this.props.status}>
-                <a className="btn btn-danger checklist_task--remove" onClick={() => this.props.chuj(this.props.id)}>delete</a>
-            <div className="card_title">{this.props.title}</div>
-                <div className="card_details">
+                <a className="btn btn-danger deleteCard" onClick={() => this.props.deleteCard(this.props.id)}>delete</a>
+            <div className="cardTitle">{this.props.title}</div>
+                <div className="cardDetails">
                     {this.props.description}
                 </div>
             </div>
