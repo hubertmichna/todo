@@ -70,6 +70,12 @@ ul {
     transition: all 0.5s ease;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 .header:hover {
     color: #ffad00;
     transition: all 0.5s ease;
@@ -116,7 +122,7 @@ ul {
     width: 100%;
     padding: 0 10px 0 15px;
     margin: 0 0 10px 0;
-    overflow: auto;
+    overflow: hidden;
     border: 1px solid #e5e5df;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
@@ -129,7 +135,7 @@ ul {
 }
 
 .cardDetails {
-    padding-bottom: 10px;
+    padding: 10px;
     white-space: pre-wrap;
 }
 
@@ -188,4 +194,26 @@ ul {
 
 .selected {
     color: #ffad00;
+}
+
+.glyphicon {
+     position: relative;
+     float: right;
+     color: #222222;
+ }
+.glyphicon:hover {
+    color: #ffad00;
+    transition: color 0.35s ease;
+}
+
+.clearStorage {
+    width: 100px;
+    height: 50px;
+    float: right;
+}
+
+.glyphicon.glyphicon-wrench {
+    float: right;
+    width: 50px;
+    height: 50px;
 }

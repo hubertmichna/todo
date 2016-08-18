@@ -2,7 +2,6 @@ import React from "react";
 import Day from "./Day"
 import Header from "./Header";
 
-
 export default class AppWrap extends React.Component {
 
     constructor() {

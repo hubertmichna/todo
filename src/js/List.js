@@ -74,8 +74,7 @@ class List extends React.Component {
         }
 
         var cards = this.props.cards.map((card) => {
-            return <Card cardCallbacks={this.props.cardCallbacks}
-                         deleteCard={this.props.deleteCard}
+            return <Card {...this.props}
                          key={card.id}
                          id={card.id}
                          title={card.title}

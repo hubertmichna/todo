@@ -32,6 +32,14 @@ class Layout extends React.Component {
             this.setState({cardsList: this.state.cardsList})
     }
 
+    editDescription(cardId,updatedDescription) {
+        if(updatedDescription !== true) {
+            let cardIndex = this.state.cardsList.findIndex((card)=>card.id == cardId);
+            this.setState(update(this.state, {cardsList: {[cardIndex]: {description: {$set: updatedDescription}}}}));
+        }
+
+    }
+
     updateCardStatus(cardId, listId) {
         let cardIndex = this.state.cardsList.findIndex((card)=>card.id == cardId);
         this.setState(update(this.state, {cardsList: {[cardIndex]: {status: {$set: listId}}}}));
@@ -53,7 +61,7 @@ class Layout extends React.Component {
 
     render() {
         return <KanbanBoard cardCallbacks={this.updateCardStatus.bind(this)} addCard={(...args) => this.addCard(...args)}
-                            deleteCard={(id) => this.deleteCard(id)} cards={this.state.cardsList}/>;
+                            deleteCard={(id) => this.deleteCard(id)} editDescription={(...args) => this.editDescription(...args)} cards={this.state.cardsList}/>;
     }
 
 }
