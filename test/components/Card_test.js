@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { shallow} from 'enzyme';
-import store from "../src/store";
+import store from "../../app/store";
 
 
-import Card from '../src/js/Card';
+import Card from '../../app/components/Card';
 
 
 describe('<Card />', () => {

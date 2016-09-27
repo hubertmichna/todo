@@ -41,7 +41,7 @@ class Card extends React.Component {
         let editDescription;
         if (this.state.showEditDescription) {
             editDescription = (<div>
-                <textarea type="text" onChange={(e) => {this.props.newDescription(e)}} className="form-control"
+                <textarea type="text" onChange={(e) => {this.props.newDescription(e.target.value)}} className="form-control"
                           defaultValue={this.props.description}/>
                 <span className="glyphicon glyphicon-ok btn-lg"
                       onClick={() => {this.props.editDescription(this.props.id, this.props.defaultCard.newDescription,this.props.selectedDayIndex);this.toggleShowEditDescription()}}/>

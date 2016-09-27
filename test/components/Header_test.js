@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
-import store from "../src/store"
-import Header from "../src/js/Header";
+import store from "../../app/store"
+import Header from "../../app/components/Header";
 
 
 

@@ -4,9 +4,9 @@ import {bindActionCreators} from "redux";
 
 import Card from "../Card"
 
-import  { newDescription }  from "../../actions/cardActions"
-import  { editDescription }  from "../../actions/cardActions"
-import  { deleteCard }  from "../../actions/cardActions"
+import  {newDescription}  from "../../actions/cardActions"
+import  {editDescription}  from "../../actions/cardActions"
+import  {deleteCard}  from "../../actions/cardActions"
 
 
 class CardConnector extends React.Component {
@@ -26,8 +26,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({editDescription,newDescription,deleteCard},dispatch)
+    return bindActionCreators({editDescription, newDescription, deleteCard}, dispatch)
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(CardConnector);
+export default connect(mapStateToProps, mapDispatchToProps)(CardConnector);
 

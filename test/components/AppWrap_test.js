@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
 
-import AppWrap from '../src/js/AppWrap';
-import CalendarConnector from "../src/js/CalendarConnector"
+import AppWrap from '../../app/components/AppWrap';
+import CalendarConnector from "../../app/components/Connectors/CalendarConnector"
 
 
 

@@ -42,9 +42,9 @@ class List extends React.Component {
         if (this.state.showAddCard === true) {
             addCard = (
                 <div className="addTask">
-                    <input type="text" onChange={(e) => this.props.addTitle(e)} className="form-control title"
+                    <input type="text" onChange={(e) => this.props.addTitle(e.target.value)} className="form-control title"
                            placeholder="Title"/>
-                    <textarea type="text" onChange={(e) => this.props.addDescription(e)} className="form-control"
+                    <textarea type="text" onChange={(e) => this.props.addDescription(e.target.value)} className="form-control"
                               placeholder="Description"/>
                     <button onClick={() => this.props.addCardfunction(this.props.defaultCard.titleX, this.props.defaultCard.descriptionX, this.props.defaultCard.statusX ? this.props.defaultCard.statusX : this.props.id,this.props.selectedDayIndex)} className="btn btn-success addCardButton">Add</button>
                 </div>

@@ -1,10 +1,9 @@
 import React from 'react';
-import { shallow} from 'enzyme';
-import store from '../src/store';
+import {shallow} from 'enzyme';
+import store from '../../app/store';
 
-import KanbanBoard from "../src/js/KanbanBoard";
-import ListConnector from "../src/js/ListConnector";
-
+import KanbanBoard from "../../app/components/KanbanBoard";
+import ListConnector from "../../app/components/Connectors/ListConnector";
 
 
 describe('<KanbanBoard/>', () => {
@@ -41,7 +40,6 @@ describe('<KanbanBoard/>', () => {
         expect(wrapper.find(ListConnector).at(2).props().title).toEqual("Done");
 
     });
-
 
 
 });

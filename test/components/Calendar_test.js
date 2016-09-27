@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
-import Calendar from '../src/js/Calendar';
-import Header from '../src/js/Header';
-import KanbanBoardConnector from '../src/js/KanbanBoardConnector';
-import store from "../src/store"
+import Calendar from '../../app/components/Calendar';
+import Header from '../../app/components/Header';
+import KanbanBoardConnector from '../../app/components/Connectors/KanbanBoardConnector';
+import store from "../../app/store"
 
 
 
