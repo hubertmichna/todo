@@ -1,12 +1,12 @@
 import React from "react";
-import Calendar from "./Calendar"
+import CalendarConnector from "./Connectors/CalendarConnector";
 
 
 export default class AppWrap extends React.Component {
     render() {
         return (
             <div>
-                <Calendar/>
+                <CalendarConnector />
                 </div>
         )
     }

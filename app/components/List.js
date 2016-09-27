@@ -1,15 +1,14 @@
 import React, {PropTypes, Component} from "react";
 
-import Card from "./Card";
+import CardConnector from "./Connectors/CardConnector";
 import ItemTypes from './ItemTypes';
 import {DropTarget} from 'react-dnd';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-
 const cardTarget = {
     drop: function (props, monitor) {
         const draggedId = monitor.getItem().id;
-        props.cardCallbacks(draggedId, props.id);
+        props.updateCardStatus(draggedId, props.id,props.selectedDayIndex);
     }
 
 };
@@ -21,42 +20,21 @@ function collect(connect) {
     };
 }
 
+
+
 class List extends React.Component {
     constructor() {
         super();
         this.state = {
             showAddCard: false,
-            titleX: "Default Title",
-            descriptionX: "No Description Added",
-            statusX: "",
         }
     }
-
-    add() {
-        this.props.addCard(this.state.titleX, this.state.descriptionX, this.state.statusX ? this.state.statusX : this.props.id)
-    }
-
-
-    updateTitle(e) {
-        this.setState({
-            titleX: e.target.value
-        })
-    }
-
-    updateDescription(e) {
-        this.setState({
-            descriptionX: e.target.value
-        })
-    }
-
 
     toggleAddCard() {
         this.setState({showAddCard: !this.state.showAddCard});
     }
 
-    componentWillReceiveProps() {
-        this.setState({showAddCard: false,titleX: "Default Title",descriptionX: "No Description Added"});
-    }
+
 
     render() {
         let addCard;
@@ -64,17 +42,17 @@ class List extends React.Component {
         if (this.state.showAddCard === true) {
             addCard = (
                 <div className="addTask">
-                    <input type="text" onChange={this.updateTitle.bind(this)} className="form-control title"
+                    <input type="text" onChange={(e) => this.props.addTitle(e)} className="form-control title"
                            placeholder="Title"/>
-                    <textarea type="text" onChange={this.updateDescription.bind(this)} className="form-control"
+                    <textarea type="text" onChange={(e) => this.props.addDescription(e)} className="form-control"
                               placeholder="Description"/>
-                    <button onClick={this.add.bind(this)} className="btn btn-success addCardButton">Add</button>
+                    <button onClick={() => this.props.addCardfunction(this.props.defaultCard.titleX, this.props.defaultCard.descriptionX, this.props.defaultCard.statusX ? this.props.defaultCard.statusX : this.props.id,this.props.selectedDayIndex)} className="btn btn-success addCardButton">Add</button>
                 </div>
             )
         }
 
         var cards = this.props.cards.map((card) => {
-            return <Card {...this.props}
+            return <CardConnector
                          key={card.id}
                          id={card.id}
                          title={card.title}

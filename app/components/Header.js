@@ -8,7 +8,7 @@ export default class Header extends React.Component {
 
         return (
             <div>
-                {this.props.Week.map((day, index)=> <span
+                {this.props.week.map((day, index)=> <span key={day}
                     className={"header " + ((this.props.selectedDayIndex === index) ? "selected" : "")}
                     onClick={()=> this.props.setSelectedDay(index)}>
                         {day}
