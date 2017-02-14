@@ -1,4 +1,4 @@
 # todo
 
-http://hubertmichna.pl:8081/
+http://hubertmichna.pl/todo/
 
